@@ -1,0 +1,21 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:6432/demo-db
+    username: demo_user
+    password: demo_pass
+    hikari:
+      data-source-properties:
+        stringtype: unspecified
+  jpa:
+    properties.hibernate.dialect: org.hibernate.dialect.PostgreSQLDialect
+    hibernate.ddl-auto: update
+    show-sql: true
+
+springdoc:
+  swagger-ui:
+    path: /v3/swagger-ui
+    urls-primary-name: one
+    enabled: true
+  api-docs:
+    path: /v3/api-docs
+    enabled: true
