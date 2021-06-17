@@ -1,6 +1,15 @@
 version: "3.8"
 
 services:
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: demo-db
+      POSTGRES_USER: demo_user
+      POSTGRES_PASSWORD: demo_pass
+    ports:
+      - '6432:5432'
+
   backend:
     build:
       context: .
@@ -12,13 +21,4 @@ services:
     environment:
       - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/demo-db
       - SPRING_PROFILES_ACTIVE=dev
-
-  db:
-    image: postgres
-    environment:
-      POSTGRES_DB: demo-db
-      POSTGRES_USER: demo_user
-      POSTGRES_PASSWORD: demo_pass
-    ports:
-      - '6432:5432'
 

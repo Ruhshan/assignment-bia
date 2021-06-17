@@ -39,4 +39,9 @@ public class StoredImageServiceImpl implements StoredImageService {
         return Arrays.stream(storedImage.getDimensions()).reduce(storedImage.getVoxel_size_bytes(),(a,b)->a*b);
 
     }
+
+    @Override
+    public void save(StoredImage storedImage) {
+        storedImageRepository.save(storedImage);
+    }
 }

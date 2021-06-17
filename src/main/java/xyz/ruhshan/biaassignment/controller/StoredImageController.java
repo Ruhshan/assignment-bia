@@ -1,8 +1,6 @@
 package xyz.ruhshan.biaassignment.controller;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import xyz.ruhshan.biaassignment.entity.StoredImage;
 import xyz.ruhshan.biaassignment.service.StoredImageService;
 
@@ -19,6 +17,11 @@ public class StoredImageController {
     @GetMapping("/images")
     public List<String> findAllAccessionIds(){
         return storedImageService.findAllAccessionIds();
+    }
+
+    @PostMapping("/images")
+    public void save(@RequestBody StoredImage storedImage){
+        storedImageService.save(storedImage);
     }
 
     @GetMapping("/accessions/{accessionID}/metadata")

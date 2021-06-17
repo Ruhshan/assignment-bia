@@ -8,4 +8,5 @@ public interface StoredImageService {
     List<String> findAllAccessionIds();
     StoredImage findById(String accessionID);
     Double findImageSize(String accessionID);
+    void save(StoredImage storedImage);
 }
