@@ -1,0 +1,38 @@
+[
+  {
+    "accessionID": "BIA-01",
+    "author": "A. Allan",
+    "species": "Arabidopsis Thaliana",
+    "tissue": "Root",
+    "voxel_size_bytes": 8,
+    "dimensions": [
+      100,
+      100,
+      50
+    ]
+  },
+  {
+    "accessionID": "BIA-02",
+    "author": "B. Beijaflor",
+    "species": "C. Elegans",
+    "voxel_size_bytes": 16,
+    "dimensions": [
+      200,
+      200,
+      30
+    ]
+  },
+  {
+    "accessionID": "BIA-03",
+    "author": "C. Cajal",
+    "species": "Drosophilia Melanogaster",
+    "tissue": "Wing",
+    "voxel_size_bytes": 8,
+    "dimensions": [
+      500,
+      200,
+      50,
+      3
+    ]
+  }
+]
