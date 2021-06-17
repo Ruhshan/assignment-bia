@@ -7,6 +7,7 @@ import org.springframework.web.server.ResponseStatusException;
 import xyz.ruhshan.biaassignment.entity.StoredImage;
 import xyz.ruhshan.biaassignment.repository.StoredImageRepository;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -30,5 +31,12 @@ public class StoredImageServiceImpl implements StoredImageService {
             log.error("Stored image with accessionID {} not found",accessionID);
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST,"Stored Image Not found");
         });
+    }
+
+    @Override
+    public Double findImageSize(String accessionID) {
+        StoredImage storedImage = findById(accessionID);
+        return Arrays.stream(storedImage.getDimensions()).reduce(storedImage.getVoxel_size_bytes(),(a,b)->a*b);
+
     }
 }

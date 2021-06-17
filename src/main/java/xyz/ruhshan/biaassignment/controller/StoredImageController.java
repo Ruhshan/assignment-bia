@@ -25,4 +25,9 @@ public class StoredImageController {
     public StoredImage findMetaData(@PathVariable("accessionID") String accessionId){
         return storedImageService.findById(accessionId);
     }
+
+    @GetMapping("/accessions/{accessionID}/imagesize")
+    public Double findImageSize(@PathVariable("accessionID") String accessionId){
+        return storedImageService.findImageSize(accessionId);
+    }
 }
