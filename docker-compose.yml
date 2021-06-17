@@ -1,6 +1,18 @@
 version: "3.8"
 
 services:
+  backend:
+    build:
+      context: .
+    ports:
+      - '8100:8100'
+    command: java -jar bia-assignment-0.0.1-SNAPSHOT.jar
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/demo-db
+      - SPRING_PROFILES_ACTIVE=dev
+
   db:
     image: postgres
     environment:
@@ -8,4 +20,5 @@ services:
       POSTGRES_USER: demo_user
       POSTGRES_PASSWORD: demo_pass
     ports:
-      - 6432:5432
+      - '6432:5432'
+
