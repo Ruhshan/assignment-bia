@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
 import xyz.ruhshan.biaassignment.entity.StoredImage;
-import xyz.ruhshan.biaassignment.repository.StoreImageRepository;
+import xyz.ruhshan.biaassignment.repository.StoredImageRepository;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,12 +23,12 @@ import java.util.stream.Collectors;
 @Configuration
 @Slf4j
 public class PreConf {
-    private final StoreImageRepository storeImageRepository;
+    private final StoredImageRepository storeImageRepository;
     private final Resource testDataResource;
     private final Gson gson;
     private final Type storedImageListType;
 
-    public PreConf(StoreImageRepository storeImageRepository, @Value("classpath:testData.json") Resource testDataResource, Gson gson) {
+    public PreConf(StoredImageRepository storeImageRepository, @Value("classpath:testData.json") Resource testDataResource, Gson gson) {
         this.storeImageRepository = storeImageRepository;
         this.testDataResource = testDataResource;
         this.gson = gson;
