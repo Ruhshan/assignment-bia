@@ -1,6 +1,6 @@
-#Instruction for running and testing the project
+# Instruction for running and testing the project
 
-##Run the project
+## Run the project
 ### 1. Clone the repo
 ```shell
 git clone https://github.com/Ruhshan/assignment-bia.git
@@ -14,12 +14,12 @@ cd assignment-bia
 docker-compose up
 ```
 
-##Test the project
-###Swagger-UI
+## Test the project
+### Swagger-UI
 After the images are built and containers are up navigate to [http://localhost:8100/v3/swagger-ui](http://localhost:8100/v3/swagger-ui) to access the Swagger-UI.
 It has the exposed endpoints rendered for quick and easy testing.
 
-###cURL
+### cURL
 Example cURL requests are as follows:
 #### 1. List all accessionIds
 **Request**
@@ -35,7 +35,7 @@ curl -X GET "http://localhost:8100/images" -H  "accept: */*"
   "BIA-04"
 ]
 ```
-####2. Get all attributes associated with an accessionID
+#### 2. Get all attributes associated with an accessionID
 **Request**
 ```shell
 curl -X GET "http://localhost:8100/accessions/BIA-01/metadata" -H  "accept: */*"
@@ -55,7 +55,7 @@ curl -X GET "http://localhost:8100/accessions/BIA-01/metadata" -H  "accept: */*"
   ]
 }
 ```
-####3. Get the image size in bytes of an accession
+#### 3. Get the image size in bytes of an accession
 **Request**
 ```shell
 curl -X GET "http://localhost:8100/accessions/BIA-01/imagesize" -H  "accept: */*"
@@ -66,7 +66,7 @@ curl -X GET "http://localhost:8100/accessions/BIA-01/imagesize" -H  "accept: */*
 ```
 ***Note that, the application will initalize with the test data from this [file](https://github.com/Ruhshan/assignment-bia/blob/master/src/main/resources/testData.json). To add more data use the following POST method***
 
-####4. Add StoredImage data
+#### 4. Add StoredImage data
 **Request**
 ```shell
 curl -X POST "http://localhost:8100/images" -H  "accept: */*" -H  "Content-Type: application/json" -d "{\"accessionID\":\"BIA-05\",\"author\":\"Watson & Crick\",\"species\":\"Homo sapiens\",\"tissue\":\"blood\",\"voxel_size_bytes\":10,\"dimensions\":[1,1,2,3]}"
